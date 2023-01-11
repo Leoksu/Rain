@@ -1,5 +1,3 @@
-import pyrogram
-
 SOURCE='https://t.me/TheGhostOrg'
 
 HELP_TEXT="""
@@ -31,4 +29,3 @@ def START_TEXT(message):
     return f"**Hello {mention}!**\nMy name is **Rain** also known as `Nameless Ghoul(Water)`.\nI'm One of `The Eight Ghouls` from @TheGhostOrg.\nI like to chat, maybe I can make you happy?\nLet's start some fun conversation.\n\n\u2022 **@TheGhostOrg**"
 
 MENU_TEXT= "**Main Menu!**\nMy name is **Rain** also known as `Nameless Ghoul(Water)`.\nI'm One of `The Eight Ghouls` from @TheGhostOrg.\nI like to chat, maybe I can make you happy?\nLet's start some fun conversation.\n\n\u2022 **@TheGhostOrg**"
-

@@ -1,10 +1,10 @@
-from .. import Config
-from Rain import rain
-from asyncio import gather, get_event_loop, sleep
-from aiohttp import ClientSession
-from pyrogram import Client, filters, idle
+from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from stuff import *
+from pyrogram import Client as rain, filters
+from stuff.string import START_TEXT, SOURCE, ABOUT_TEXT, MENU_TEXT, HELP_TEXT
+from stuff.utils import USERNAME
+from config import UPDATES_CHANNEL
+
 
 
 @rain.on_message(filters.command(["start", f"start@{USERNAME}"]))
@@ -26,7 +26,7 @@ async def start(client, message):
             ]
             ]
    reply_markup = InlineKeyboardMarkup(buttons)
-   START_TEXT = startmsg.START_TEXT(client, message)
+   START_TEXT = stuff.START_TEXT(client, message)
    mention = message.from_user.mention
    await message.reply_text(
        START_TEXT,
@@ -87,7 +87,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         try:
             await query.edit_message_text(
-               MAIN_TEXT,
+               MENU_TEXT,
                reply_markup=reply_markup
             )
         except MessaageNotModified:
