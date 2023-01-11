@@ -1,3 +1,4 @@
+
 import re
 import requests
 from pyrogram import Client, filters 
@@ -21,11 +22,10 @@ async def rainchat(message):
         return
     await message._client.send_chat_action(chat_id, "cancel")
 
-@Client.on_message(
+@Client.on_edited_message(
     ~filters.private
     & filters.text
     & ~filters.command("help")
-    & ~filters.edited,
     group=69,
 )
 async def chat(_, message):
@@ -45,8 +45,8 @@ async def chat(_, message):
             return
     await rainchat(message)
 
-@Client.on_message(
-    filters.private & ~filters.command("help") & ~filters.edited
+@Client.on_edited_message(
+    filters.private & ~filters.command("help")
 )
 async def chatpm(_, message):
     if not message.text:
