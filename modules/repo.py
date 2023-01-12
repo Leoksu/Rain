@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from stuff.string import SOURCE
 from config import UPDATES_CHANNEL
 
-@Client.on_message(filters.command("repo") & ~filters.edited)
+@Client.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_text(
         "Repository is currently hidden\n"

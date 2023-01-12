@@ -23,10 +23,9 @@ async def rainchat(message):
     await message._client.send_chat_action(chat_id, "cancel")
 
 @Client.on_edited_message(
-    ~filters.private
-    & filters.text
-    & ~filters.command("help")
-    group=69,
+    ~filters.private,
+    ~filters.text,
+    ~filters.command("help"),
 )
 async def chat(_, message):
     if message.reply_to_message:
@@ -45,9 +44,7 @@ async def chat(_, message):
             return
     await rainchat(message)
 
-@Client.on_edited_message(
-    filters.private & ~filters.command("help")
-)
+@Client.on_edited_message(filters.private & ~filters.command("help"))
 async def chatpm(_, message):
     if not message.text:
         return

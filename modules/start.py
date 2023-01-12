@@ -34,7 +34,7 @@ async def start(client, message):
        )
 
 @rain.on_callback_query()
-async def cb_handler(client: Client, query: CallbackQuery):
+async def cb_handler(client, query: CallbackQuery):
     if query.data=="help":
         buttons = [
             [

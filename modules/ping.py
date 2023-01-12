@@ -1,4 +1,4 @@
-from stuff.utils import USERNANE
+from stuff.utils import USERNAME
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import time
