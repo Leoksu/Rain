@@ -1,3 +1,5 @@
+from config import UPDATES_CHANNEL
+
 SOURCE='https://t.me/TheGhostOrg'
 
 HELP_TEXT="""

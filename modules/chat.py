@@ -1,9 +1,8 @@
-
 import re
 import requests
-from pyrogram import Client, filters 
+from pyrogram import Client, filters
 from asyncio import sleep
-from config import AI_BID, AI_API_KEY, bot_token
+from .stuff.config import *
 
 bot_id=int(bot_token.split(":")[0])
 
@@ -23,9 +22,10 @@ async def rainchat(message):
     await message._client.send_chat_action(chat_id, "cancel")
 
 @Client.on_edited_message(
-    ~filters.private,
-    ~filters.text,
-    ~filters.command("help"),
+    ~filters.private
+    & filters.text
+    & filters.regex(r'^/')
+    & ~filters.edited
 )
 async def chat(_, message):
     if message.reply_to_message:
@@ -44,8 +44,8 @@ async def chat(_, message):
             return
     await rainchat(message)
 
-@Client.on_edited_message(filters.private & ~filters.command("help"))
+@Client.on_edited_message(filters.private & ~filters.regex(r'^/') & ~filters.edited)
 async def chatpm(_, message):
     if not message.text:
-        return
+        await message.reply("I'm sorry, in current version I can only understand word. Tell @aethersghoul don't being lazy and update me.")
     await rainchat(message)

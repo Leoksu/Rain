@@ -1,18 +1,9 @@
-from stuff.utils import USERNAME
+from time import time
 from pyrogram import Client, filters
-from pyrogram.types import Message
-import time
 
-start_time = time.time()
-
-@Client.on_message(filters.command(["ping", "ping@{USERNAME}"]))
-async def ping(client, message):
-          response_start_time = time.time()
-          message_id = message.message_id
-          chat_id = message.chat.id
-          rain = await message.reply_text("`Calculating...`")
-          response_end_time = time.time()
-          response_time = (response_end_time - response_start_time) * 1000
-          uptime = time.time() - start_time
-          rain_ping = f"**Response time**: `{response_time:.2f}ms`, **Uptime** : `{uptime:.2f}s` "
-          await rain.edit(chat_id, message_id, rain_ping)
+@Client.on_message(main_filter & filters.regex("^/ping$"))
+async def ping_pong(_, message: Message):
+    start = time()
+    reply = await message.reply_text("...", quote=True)
+    delta_ping = time() - start
+    await reply.edit_text(f"**Pong!**\n`{delta_ping * 1000:.3f} ms`")

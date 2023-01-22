@@ -1,28 +1,30 @@
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from pyrogram import Client as rain, filters
-from stuff.string import START_TEXT, SOURCE, ABOUT_TEXT, MENU_TEXT, HELP_TEXT
-from stuff.utils import USERNAME
-from config import UPDATES_CHANNEL
+from pyrogram import Client, filters
+from .stuff.string import *
+from .stuff.config import *
 
 
 
-@rain.on_message(filters.command(["start", f"start@{USERNAME}"]))
+@Client.on_message(
+    filters.command(["start", f"start@{USERNAME}"])
+    & ~filters.edited
+)
 async def start(client, message):
    buttons = [
             [
-                InlineKeyboardButton("How To Use Me", callback_data="help"),
+                InlineKeyboardButton("❓ How To Use Me ❓", callback_data="help"),
             ],
             [
-                InlineKeyboardButton("Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                InlineKeyboardButton("Source",  url=f"{SOURCE}"),
+                InlineKeyboardButton("🔔 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                InlineKeyboardButton("Source 📦",  url="https://github.com/Leoksu/Rain"), 
+            ],                                           # god watching u
+            [
+                InlineKeyboardButton("📜 About", callback_data="about"),
+                InlineKeyboardButton("Close ❌", callback_data="close"),
             ],
             [
-                InlineKeyboardButton("About", callback_data="about"),
-                InlineKeyboardButton("Close", callback_data="close"),
-            ],
-            [
-                InlineKeyboardButton("Add Me To Your Group", url=f"https://t.me/{USERNAME}?startgroup=true")
+                InlineKeyboardButton("➕ Add Me To Your Group ➕", url=f"https://t.me/{USERNAME}?startgroup=true")
             ]
             ]
    reply_markup = InlineKeyboardMarkup(buttons)
@@ -33,13 +35,13 @@ async def start(client, message):
        reply_markup=reply_markup
        )
 
-@rain.on_callback_query()
+@Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     if query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton("Back", callback_data="start"),
-                InlineKeyboardButton ("Update Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                InlineKeyboardButton("🔙 Back", callback_data="start"),
+                InlineKeyboardButton ("Updates 🔔", url=f"https://t.me/{UPDATES_CHANNEL}"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -54,8 +56,8 @@ async def cb_handler(client, query: CallbackQuery):
     elif query.data=="about":
         buttons = [
             [
-                InlineKeyboardButton("Back", callback_data="start"),
-                InlineKeyboardButton ("Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                InlineKeyboardButton("🔙 Back", callback_data="start"),
+                InlineKeyboardButton ("Updates 🔔", url=f"https://t.me/{UPDATES_CHANNEL}"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -70,18 +72,18 @@ async def cb_handler(client, query: CallbackQuery):
     elif query.data=="start":
         buttons = [
             [
-                InlineKeyboardButton("How To Use Me", callback_data="help"),
+                InlineKeyboardButton("❓ How To Use Me ❓", callback_data="help"),
             ],
             [
-                InlineKeyboardButton("Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                InlineKeyboardButton("Source",  url=f"{SOURCE}"),
+                InlineKeyboardButton("🔔 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                InlineKeyboardButton("Source 📦",  url=f"https://github.com/Leoksu/Rain"),
+            ],                                             # dude ??
+            [
+                InlineKeyboardButton("📜 About", callback_data="about"),
+                InlineKeyboardButton("Close ❌", callback_data="close"),
             ],
             [
-                InlineKeyboardButton("About", callback_data="about"),
-                InlineKeyboardButton("Close", callback_data="close"),
-            ],
-            [
-                InlineKeyboardButton("Add Me To Your Groups", url=f"https://t.me/{USERNAME}?startgroup=true")
+                InlineKeyboardButton("➕ Add Me To Your Groups ➕", url=f"https://t.me/{USERNAME}?startgroup=true")
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
