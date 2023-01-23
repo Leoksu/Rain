@@ -98,12 +98,12 @@ async def start(_, message):
                 InlineKeyboardButton ("Updates 🔔", url=f"https://t.me/{UPDATES_CHANNEL}"),
             ]
             ]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply(
-                HELP_TEXT,
-                reply_markup=reply_markup,
-                disable_web_page_preview=True
-        )
+    reply_markup = InlineKeyboardMarkup(buttons)
+    await message.reply(
+        HELP_TEXT,
+        reply_markup=reply_markup,
+        disable_web_page_preview=True
+    )
 
 ## ------------------ ping modules ---------------- ##
 @rain.on_message(
