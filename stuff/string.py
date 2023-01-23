@@ -1,4 +1,4 @@
-from config import UPDATES_CHANNEL
+from stuff.config import UPDATES_CHANNEL
 
 HELP_TEXT="""
 -- **Start Conversation** --

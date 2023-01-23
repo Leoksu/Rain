@@ -112,9 +112,9 @@ async def start(_, message):
     & filters.command("ping")
 )
 async def ping_pong(_, message):
-    start = time()
+    start = time.time()
     reply = await message.reply_text("__Ping...__", quote=True)
-    delta_ping = time() - start
+    delta_ping = time.time() - start
     await reply.edit_text(f"**Pong!**\n`{delta_ping * 1000:.3f} ms`")
 
 ## ------------------ Uptime modules ---------------- ##
@@ -143,14 +143,14 @@ def _human_time_duration(seconds):
 @rain.on_message(
     filters.text
     & ~filters.edited
-    & filters.command("ping"))
+    & filters.command("uptime"))
 async def get_uptime(_, message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = _human_time_duration(int(uptime_sec))
     await message.reply_text(
         f"**Uptime**: `{uptime}`\n"
-        + f"**Start time**: `{START_TIME_ISO}`",
+        + f"**Start time**: `{TIME_ISO}`",
         quote=True
     )
 
@@ -177,11 +177,11 @@ async def start(client, message):
             ]
             ]
    reply_markup = InlineKeyboardMarkup(buttons)
-   START_TEXT = stuff.START_TEXT(client, message)
    mention = message.from_user.mention
    await message.reply_text(
-       START_TEXT,
+       START_TEXT.format(mention),
        reply_markup=reply_markup
+       disable_web_page_preview=True
        )
 
 @rain.on_callback_query()
@@ -198,6 +198,7 @@ async def cb_handler(client, query: CallbackQuery):
             await query.edit_message_text(
                 HELP_TEXT,
                 reply_markup=reply_markup
+                disable_web_page_preview=True
             )
         except MessageNotModified:
             pass
@@ -214,6 +215,7 @@ async def cb_handler(client, query: CallbackQuery):
             await query.edit_message_text(
                 ABOUT_TEXT,
                 reply_markup=reply_markup
+                disable_web_page_preview=True
             )
         except MessageNotModified:
             pass
@@ -240,6 +242,7 @@ async def cb_handler(client, query: CallbackQuery):
             await query.edit_message_text(
                MENU_TEXT,
                reply_markup=reply_markup
+               disable_web_page_preview=True
             )
         except MessaageNotModified:
             pass
