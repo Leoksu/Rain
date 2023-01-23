@@ -1,7 +1,5 @@
 from config import UPDATES_CHANNEL
 
-SOURCE='https://t.me/TheGhostOrg'
-
 HELP_TEXT="""
 -- **Start Conversation** --
 
@@ -18,16 +16,16 @@ HELP_TEXT="""
 
 -- **Available Commands**: --
 
-\u2022 `/start` - Start the bot
-\u2022 `/help` - Send this help message
-\u2022 `/repo` - Get the source code of this bot
-\u2022 `/manage` - Developers only
+\u2022 /start   - Start the bot
+\u2022 /help    - Send this help message
+\u2022 /ping    - Test and see Rain response time
+\u2022 /uptime  - See Rain uptime
+\u2022 /repo    - Get the source code of this bot
+\u2022 /restart - Developers only
  """
 
-ABOUT_TEXT=f"-- **Informations** --\n\n**Rain** | `Nameless Ghoul(Water)`\n\n- **Rain** is a `Telegram` Chat Bot that made for fun only(not contain search engine or `ChatGPT`-like stuff)\n- Written in `Python` language with `Pyrogram` library, Using `brainshop.ai` API for generating responses\n\n**This bot licensed under [GNU-GPL](https://www.gnu.org/license/) 3.0 License!**\n**Developed by [Ghost.org](t.me/{UPDATES_CHANNEL})**"
+ABOUT_TEXT= f"-- **Informations** --\n\n**Rain** | `Nameless Ghoul(Water)`\n\n- **Rain** is a `Telegram` Chat Bot that made for fun only(not contain search engine or `ChatGPT`-like stuff)\n- If you looking for it, go to @DewdropRbot\n- Built in **[Python](https://www.python.org/)** language with **[Pyrogram](https://pyrogram.org)** library, Using `brainshop.ai` API for generating responses\n\n© **[ghost.org](t.me/{UPDATES_CHANNEL})**"
 
-def START_TEXT(message):
-    mention = message.from_user.mention
-    return f"**Hello {mention}!**\nMy name is **Rain** also known as `Nameless Ghoul(Water)`.\nI'm One of `The Eight Ghouls` from @TheGhostOrg.\nI like to chat, maybe I can make you happy?\nLet's start some fun conversation.\n\n\u2022 **@TheGhostOrg**"
+START_TEXT= "Hello **{}**!\nMy name is **Rain** also known as `Nameless Ghoul(Water)`.\nI'm One of `The Eight Ghouls` from @GhostWebs.\nI like to chat with people, maybe I can make you happy?\nLet's start some fun conversation.\n\n© @GhostWebs"
 
-MENU_TEXT= "**Main Menu!**\nMy name is **Rain** also known as `Nameless Ghoul(Water)`.\nI'm One of `The Eight Ghouls` from @TheGhostOrg.\nI like to chat, maybe I can make you happy?\nLet's start some fun conversation.\n\n\u2022 **@TheGhostOrg**"
+MENU_TEXT= "-- **Main Menu** --\nMy name is **Rain** also known as `Nameless Ghoul(Water)`.\nI'm One of `The Eight Ghouls` from @TheGhostOrg.\nI like to chat, maybe I can make you happy?\nLet's start some fun conversation.\n\n© @GhostWebs"
