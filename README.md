@@ -30,7 +30,7 @@
 > Strongly recommend to use real mail for backup purpose.
 > Domain name can be anything, such as google.com or yours since it's not useable (active domain required).
 - After register, You will receive mail to complete your registration.
-- If you done with account, then create new brain by click [this](https://brainshop.ai/brain/add/brain).
+- If you done with your account, then create new brain by click [this](https://brainshop.ai/brain/add/brain).
 > Recommended to enable semantic engine and default cells, so you don't need to built brain manually. (unless you know to do it)
 > Application can be anything, it's only matter to your bot response since you enable semantic engine and default cells.
 - Save your brain, and go to your brain settings.
