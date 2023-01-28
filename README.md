@@ -28,15 +28,17 @@
 
 - First you need to create account at [Brainshop](https://brainshop.ai/user/register).
 > Strongly recommend to use real mail for backup purpose.
-> Domain name can be anything, such as google.com or yours since it's not useable (active domain required).
+- Domain name can be anything, such as google.com or yours since it's not useable (active domain required).
 - After register, You will receive mail to complete your registration.
 - If you done with your account, then create new brain by click [this](https://brainshop.ai/brain/add/brain).
 > Recommended to enable semantic engine and default cells, so you don't need to built brain manually. (unless you know to do it)
-> Application can be anything, it's only matter to your bot response since you enable semantic engine and default cells.
+- Application can be anything, it's only matter to your bot response since you enable semantic engine and default cells.
 - Save your brain, and go to your brain settings.
+
 <summary>
     <img src="" alt="" />
 </summary>
+
 - Copy Brain ID and API Key, it will be used in [variables](#variables).
 
 ---
@@ -48,6 +50,7 @@
 <summary>
     <img src="" alt="" />
 </summary>
+
 - Click that wrench icon, Click attribute and add attribute based on default attribute with your own value.
 > It's not required to add all attribute, you can add only what you need.
 
@@ -63,11 +66,11 @@
 ## Deploy locally (Linux based os):
 - Update first.
 ```sh
-apt update && apt upgrade
+apt update && apt upgrade -y
 ```
-- Install `git` and `python`, skip if you have rhis.
+- Install `git` and `python`, skip if you have this.
 ```sh
-apt install git python3
+apt install git python3 -y
 ```
 - Clone this repository.
 ```sh
@@ -89,7 +92,7 @@ python3 rain.py
 - If you want to run your bot on background of your server
 - run this before `python3 rain.py`.
 ```sh
-apt intall screen && screen -S chatbot
+apt install screen && screen -S chatbot
 ```
 - And run `python3 rain.py`, after done press `CTRL+A` & `D` to detach from screen
 - To check logs or stop bot run `screen -r chatbot`
