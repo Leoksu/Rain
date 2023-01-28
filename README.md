@@ -55,7 +55,7 @@
 # Variables
 
 - `BOT_TOKEN` - Visit [@BotFather](https://t.me/BotFather) and send `/newbot`. You will see instructions to create a new bot.
-- `API_URL` & `BRAIN_ID` - Your brainshop configuration ([# Setup](#setup)).
+- `API_KEY` & `BRAIN_ID` - Your brainshop configuration ([# Setup](#setup)).
 - `USERNAME` - Your bot username without @.
 
 # Deployment
