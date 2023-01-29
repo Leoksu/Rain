@@ -1,6 +1,6 @@
 # Rain
 <p align="center">
-    <b>Is an Telegram A.I Chat bot written in python with pyrogram library, and make brain using Brainshop.ai APi
+    <b>Telegram A.I Chat bot written in python with pyrogram library, and make brain using Brainshop.ai APi
     </b>
 </p>
 <img src="" alt="" />
@@ -13,8 +13,9 @@
 
 # Features
 
-- [x] Free, like, totally free ☺️.
+- [x] Free, like, totally free 🙂.
 - [x] Generate human-like text response.
+- [x] It's just like human, real human:).
 - [x] Ability to remember past dialogue.
 > Will forget user in several days. In work with this.
 - [x] Ability to understand human feelings. ie, when you angry, happy, etc.
