@@ -262,8 +262,8 @@ async def cb_handler(client, query: CallbackQuery):
 async def repo(_, message):
     await message.reply_text(
         "Want to make your own bot like Rain?\nDon't forget to read the license.\n\n",
-        + f"**[GitHub](https://github.com/Leoksu/Rain)**",
-        + f" | **[Updates](t.me/{UPDATES_CHANNEL})**",
+        f"**[GitHub](https://github.com/Leoksu/Rain)**",
+        f" | **[Updates](t.me/{UPDATES_CHANNEL})**",
         disable_web_page_preview=True
     )
 
