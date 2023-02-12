@@ -180,7 +180,7 @@ async def start(client, message):
    mention = message.from_user.mention
    await message.reply_text(
        START_TEXT.format(mention),
-       reply_markup=reply_markup
+       reply_markup=reply_markup,
        disable_web_page_preview=True
        )
 
@@ -197,7 +197,7 @@ async def cb_handler(client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 HELP_TEXT,
-                reply_markup=reply_markup
+                reply_markup=reply_markup,
                 disable_web_page_preview=True
             )
         except MessageNotModified:
@@ -214,7 +214,7 @@ async def cb_handler(client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 ABOUT_TEXT,
-                reply_markup=reply_markup
+                reply_markup=reply_markup,
                 disable_web_page_preview=True
             )
         except MessageNotModified:
@@ -241,7 +241,7 @@ async def cb_handler(client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                MENU_TEXT,
-               reply_markup=reply_markup
+               reply_markup=reply_markup,
                disable_web_page_preview=True
             )
         except MessaageNotModified:
@@ -261,8 +261,8 @@ async def cb_handler(client, query: CallbackQuery):
     )
 async def repo(_, message):
     await message.reply_text(
-        "Want to make your own bot like Rain?\nDon't forget to read the license.\n\n"
-        + f"**[GitHub](https://github.com/Leoksu/Rain)**"
+        "Want to make your own bot like Rain?\nDon't forget to read the license.\n\n",
+        + f"**[GitHub](https://github.com/Leoksu/Rain)**",
         + f" | **[Updates](t.me/{UPDATES_CHANNEL})**",
         disable_web_page_preview=True
     )
