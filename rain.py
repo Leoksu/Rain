@@ -62,7 +62,7 @@ async def chat(_, message):
         chat_id = message.chat.id
         await rain.send_chat_action(chat_id, "typing")
         await sleep(2)
-        await message.reply("I'm sorry, in current version I can only understand word. Tell @aethersghoul don't being lazy and update me.")
+        await message.reply("I'm sorry, in current version I can only understand word. Tell @leoxu don't being lazy and update me.")
         await rain.send_chat_action(chat_id, "cancel")
     else:
         match = re.search(
@@ -80,7 +80,7 @@ async def chatpm(_, message):
         chat_id = message.chat.id
         await rain.send_chat_action(chat_id, "typing")
         await sleep(2)
-        await message.reply("I'm sorry, in current version I can only understand word. Tell @aethersghoul don't being lazy and update me.")
+        await message.reply("I'm sorry, in current version I can only understand word. Tell @leoxu don't being lazy and update me.")
         await rain.send_chat_action(chat_id, "cancel")
     await rainchat(message)
 
